@@ -1,0 +1,119 @@
+<html>
+    <head>
+        <title>Attendance
+        </title>
+        <style>
+        body
+        {
+            text-align: center;
+           color: greenyellow;
+        }
+        h1
+        {
+            font-size: 80px;
+        }
+        #sb
+        {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        #st
+        {
+            display: none;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    input
+    {
+        margin: 10px;
+    }    
+    #display_with_comma
+    {
+        border: 1px solid green;
+        padding: 10px;
+        border-radius: 10px;
+        width: 50%;
+        background-color: honeydew;
+    }
+    #display_without_comma
+    {
+        border: 1px solid rgb(0, 13, 128);
+        padding: 10px;
+        border-radius: 10px;
+        width: 50%;
+        background-color: rgb(44, 200, 228);
+    }
+        </style>
+
+    </head>
+    <body>
+        <h1>List of the students</h1>
+        <div>
+            <span>1
+            </span>
+            <input type="text" placeholder="Name of the student" id="student1">
+            <br>
+            <span>2
+            </span>
+            <input type="text" placeholder="Name of the student" id="student2">
+            <br>
+            <span>3
+            </span>
+            <input type="text" placeholder="Name of the student" id="student3">
+            <br>
+            <span>4
+            </span>
+            <input type="text" placeholder="Name of the student" id="student4">
+            <br>
+        </div>
+        <div id="display_with_comma"></div>
+        <br>
+        <div id="display_without_comma"></div>
+        <br>
+        <button id="sb" onclick="submit()">SUBMIT</button>
+        <br>
+        <button id="st" onclick="sort()" style="display: none;"> Sort</button>
+        <script>
+            var student=[];
+            function submit()
+            {
+                var display=[];
+                for(var j=1;j<=4;j++)
+                {
+                var st1=document.getElementById("student"+j).value;
+                console.log(st1);
+                student.push(st1);
+                }
+                console.log(student);
+                var l1=student.length;
+                console.log(l1);
+                for(var k=0;k<l1;k++)
+                {
+                    display.push("<h4>NAME-"+student[k]+"</h4>");
+                    console.log(display);
+                }
+                document.getElementById("display_with_comma").innerHTML = display;
+                var remove_commas=display.join(" ");
+                document.getElementById("display_without_comma").innerHTML = remove_commas;
+                 document.getElementById("sb").style.display = "none";
+                  document.getElementById("st").style.display = "inline-block"; 
+                
+                }
+                  
+                  function sort()
+                  { 
+                      student.sort(); 
+                    console.log(student);
+                    var display1=[]; 
+                    var l1=student.length;
+                     console.log(l1);
+                     for(var k=0;k<l1;k++)
+                     {
+                    display1.push("<h4>NAME-"+student[k]+"</h4>");
+                    console.log(display1);
+                    }
+                    var remove_commas=display1.join(" ");
+                    document.getElementById("display_without_comma").innerHTML = remove_commas; }
+        </script>
+    </body>
+</html>
